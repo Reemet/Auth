@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button, FormGroup, FormControl, FormLabel  } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
-import { login, getGroups } from '../../actions/index';
+import { login, getGroups, renewToken } from '../../actions/index';
 
 import "./form.css";
 
@@ -23,6 +23,7 @@ class LoginPage extends Component {
         if(this.props.cookies.get('fob')) {
             const cookie = this.props.cookies.get('fob');
             this.props.getGroups(cookie);
+            this.props.renewToken(cookie);
         }
 
        if (nextProps.state.login.payload) {
@@ -95,4 +96,4 @@ const mapStateToProps = (state, ownProps) =>  {
     })
 }
 
-export default connect(mapStateToProps, { login, getGroups }) (LoginPage);
+export default connect(mapStateToProps, { login, getGroups, renewToken }) (LoginPage);
