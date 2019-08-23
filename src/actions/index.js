@@ -20,7 +20,7 @@ export function login(email, password) {
 }
 export function renewToken(token) {
     return dispatch => {
-        axios.get(`${baseURL}auth/renew-token`, { headers: { 'Authorization': `Basic  ${token}`}} ).then( (result) => {
+        axios.get(`${baseURL}auth/renew-token`, { headers: { 'Authorization': `Bearer  ${token}`}} ).then( (result) => {
             console.log(result);
         }) 
     }
@@ -31,7 +31,7 @@ export function getGroups(token) {
 
     // axios.defaults.headers.common = {'Authorization': `Bearer-${token}`}
         return dispatch => {
-            axios.get(`${baseURL}groups/all`, { headers: {'Authorization': `Basic  ${token}`}}).then( (response) => {
+            axios.get(`${baseURL}groups/all`, { headers: {'Authorization': `Bearer  ${token}`}}).then( (response) => {
                 console.log(response);
         });
     }
