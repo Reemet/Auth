@@ -19,7 +19,7 @@ export function login(email, password) {
    
 }
 export function renewToken(token) {
-    axios.get(`${baseURL}auth/renew-token`, { headers: { 'Bearer': `${token}`}} ).then( (result) => {
+    axios.get(`${baseURL}auth/renew-token`, { headers: { 'Authorization': 'Bearer' `${token}`}} ).then( (result) => {
         console.log(result);
     }) 
 }
